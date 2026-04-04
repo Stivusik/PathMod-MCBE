@@ -18,7 +18,7 @@ invoke-static {}, Landroid/os/Environment;->getExternalStorageDirectory()Ljava/i
 In MainActivity.smali
 
 # Add permission request:
-Paste this method in MainActivity.smali:
+Paste these methods in MainActivity.smali:
 ```
 .method public IfStoragePermissionWasDenied(Landroid/content/Context;)V
     .registers 4
@@ -29,7 +29,7 @@ Paste this method in MainActivity.smali:
 
     const/16 v1, 0x1e
 
-    if-lt v0, v1, :cond_1d
+    if-lt v0, v1, :cond_1f
 
     invoke-static {}, Landroid/os/Environment;->isExternalStorageManager()Z
 
@@ -50,13 +50,15 @@ Paste this method in MainActivity.smali:
 
     invoke-virtual {v1}, Landroid/widget/Toast;->show()V
 
-    new-instance v1, Ljava/lang/RuntimeException;
+    invoke-static {}, Landroid/os/Process;->myPid()I
 
-    invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    move-result v1
 
-    throw v1
+    invoke-static {v1}, Landroid/os/Process;->killProcess(I)V
 
-    :cond_1d
+    return-void
+
+    :cond_1f
     return-void
 .end method
 
