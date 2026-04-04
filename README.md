@@ -133,8 +133,3 @@ Paste this anywhere:
 ```
 Remove ```android:maxSdkVersion="32"```:
 <img width="1080" height="100" alt="Screenshot_20251214_115028_MT Manager" src="https://github.com/user-attachments/assets/a4309a8a-9b25-4c3b-beb3-47f77e170d24" />
-
-
-# Scripts
-If you are lazy, you can decompile mc apk using ApkTool M and run the script.
-The shell script was tested with MPatcher and MT Manager, and the python script was tested with Pydroid 3.
