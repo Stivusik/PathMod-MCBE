@@ -1,4 +1,4 @@
-> For LiteLDev, OpenMCBE and **any** of their subcompanies/suborganizations is not allowed to use this product for their purposes in any way.
+> For LiteLDev, OpenMCBE, Nexcaise and **any** of their subcompanies/suborganizations is not allowed to use this product for their purposes in any way.
 
 # Replace strings
 Replace all from:
