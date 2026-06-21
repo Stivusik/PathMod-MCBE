@@ -133,44 +133,58 @@ Paste these methods in MainActivity.smali:
 
     .prologue
     const/4 v7, 0x0
-
     const/4 v6, 0x1
-
     const/4 v5, 0x0
 
     sget v3, Landroid/os/Build$VERSION;->SDK_INT:I
-
     const/16 v4, 0x1e
 
-    if-lt v3, v4, :cond_26
+    if-lt v3, v4, :cond_api29
 
     invoke-static {}, Landroid/os/Environment;->isExternalStorageManager()Z
-
     move-result v3
 
-    if-nez v3, :cond_26
+    if-nez v3, :cond_end
 
     new-instance v3, Landroid/content/Intent;
-
     sget-object v4, Landroid/provider/Settings;->ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION:Ljava/lang/String;
-
     invoke-direct {v3, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     const-string v4, "package"
-
     invoke-virtual {p0}, Landroid/app/Activity;->getPackageName()Ljava/lang/String;
-
     move-result-object v5
 
     invoke-static {v4, v5, v7}, Landroid/net/Uri;->fromParts(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri;
-
     move-result-object v4
 
     invoke-virtual {v3, v4}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
 
     invoke-virtual {p0, v3}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
 
-    :cond_26
+    goto :cond_end
+
+    :cond_api29
+    const-string v3, "android.permission.WRITE_EXTERNAL_STORAGE"
+    invoke-virtual {p0, v3}, Landroid/app/Activity;->checkSelfPermission(Ljava/lang/String;)I
+    move-result v3
+
+    if-eqz v3, :cond_end
+
+    const/4 v3, 0x2
+    new-array v3, v3, [Ljava/lang/String;
+
+    const/4 v4, 0x0
+    const-string v5, "android.permission.WRITE_EXTERNAL_STORAGE"
+    aput-object v5, v3, v4
+
+    const/4 v4, 0x1
+    const-string v5, "android.permission.READ_EXTERNAL_STORAGE"
+    aput-object v5, v3, v4
+
+    const/16 v4, 0x64
+    invoke-virtual {p0, v3, v4}, Landroid/app/Activity;->requestPermissions([Ljava/lang/String;I)V
+
+    :cond_end
     return-void
 .end method
 ```
