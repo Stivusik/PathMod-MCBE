@@ -1,6 +1,6 @@
 > For LiteLDev, OpenMCBE, Nexcaise and **any** of their subcompanies/suborganizations is not allowed to use this product for their purposes in any way.
 
-# Replace strings
+### Replace strings
 Replace all from:
 ```
 invoke-virtual {p0}, Lcom/mojang/minecraftpe/MainActivity;->getDataDir()Ljava/io/File;
@@ -17,7 +17,7 @@ invoke-static {}, Landroid/os/Environment;->getExternalStorageDirectory()Ljava/i
 ```
 In MainActivity.smali
 
-# Replace methods
+### Replace methods
 Replace from:
 ```
 .method public getLegacyExternalStoragePath(Ljava/lang/String;)Ljava/lang/String;
@@ -78,7 +78,7 @@ To:
 ```
 In MainActivity.smali
 
-# Add permission request:
+### Add permission request:
 Paste these methods in MainActivity.smali:
 ```
 .method public IfStoragePermissionWasDenied(Landroid/content/Context;)V
@@ -189,7 +189,7 @@ Paste these methods in MainActivity.smali:
 .end method
 ```
 
-# After adding RequestPermission()V and IfStoragePermissionWasDenied(Landroid/content/Context;)V, add this string to the start of OnCreate:
+### After adding RequestPermission()V and IfStoragePermissionWasDenied(Landroid/content/Context;)V, add this string to the start of OnCreate:
 ```
 invoke-virtual {p0}, Lcom/mojang/minecraftpe/MainActivity;->RequestPermission()V
 
@@ -198,7 +198,7 @@ invoke-virtual {p0, p0}, Lcom/mojang/minecraftpe/MainActivity;->IfStoragePermiss
 It should look like this:
 <img width="1080" height="197" alt="Screenshot_20251214_114646_MT Manager" src="https://github.com/user-attachments/assets/02225a50-141b-41c7-bd32-881249a2b2ba" />
 
-# Add permissions in AndroidManifest.xml
+### Add permissions in AndroidManifest.xml
 Paste this anywhere:
 ```
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
