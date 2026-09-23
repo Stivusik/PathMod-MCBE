@@ -79,7 +79,7 @@ To:
 In MainActivity.smali
 
 ### Add permission request:
-Paste these methods in MainActivity.smali:
+Paste these methods in the end of MainActivity.smali:
 ```
 .method public IfStoragePermissionWasDenied(Landroid/content/Context;)V
     .registers 4
