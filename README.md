@@ -220,8 +220,6 @@ It should look like this:
 Paste them above ```</manifest>```:
 ```
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-```
-```
 <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
 ```
 Remove ```android:maxSdkVersion="32"``` (If it isn't there, don't mind about it):
