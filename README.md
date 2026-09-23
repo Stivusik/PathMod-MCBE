@@ -217,7 +217,7 @@ It should look like this:
 <img width="1080" height="197" alt="Screenshot_20251214_114646_MT Manager" src="https://github.com/user-attachments/assets/02225a50-141b-41c7-bd32-881249a2b2ba" />
 
 ### Add permissions in AndroidManifest.xml
-Paste this anywhere:
+Paste them above </manifest>:
 ```
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 ```
