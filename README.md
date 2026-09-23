@@ -224,5 +224,5 @@ Paste this anywhere:
 ```
 <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
 ```
-Remove ```android:maxSdkVersion="32"``` (If it isn't there, then ignore this part of tutorial):
+Remove ```android:maxSdkVersion="32"``` (If it isn't there, don't mind about it):
 <img width="1080" height="100" alt="Screenshot_20251214_115028_MT Manager" src="https://github.com/user-attachments/assets/a4309a8a-9b25-4c3b-beb3-47f77e170d24" />
