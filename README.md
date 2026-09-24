@@ -13,7 +13,7 @@ To:
 ```
 invoke-static {}, Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;
 ```
->Regex are required to find strings
+>Regex is required to find strings
 
 ### Replace methods In MainActivity.smali
 Replace from:
