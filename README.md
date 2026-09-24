@@ -38,14 +38,12 @@ Paste these methods in the end of MainActivity.smali:
 ```
 .method public IfStoragePermissionWasDenied(Landroid/content/Context;)V
     .registers 4
-    .param p1, "context"  # Landroid/content/Context;
 
-    .prologue
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x1e
 
-    if-lt v0, v1, :cond_1f
+    if-lt v0, v1, :cond_22
 
     invoke-static {}, Landroid/os/Environment;->isExternalStorageManager()Z
 
@@ -72,21 +70,25 @@ Paste these methods in the end of MainActivity.smali:
 
     invoke-static {v1}, Landroid/os/Process;->killProcess(I)V
 
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
+
     return-void
 
-    :cond_1f
+    :cond_22
+    const-string v0, "android.permission.WRITE_EXTERNAL_STORAGE"
+
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->checkSelfPermission(Ljava/lang/String;)I
+
+    move-result v0
+
+    if-nez v0, :cond_d
+
     return-void
 .end method
 
 .method public RequestPermission()V
     .registers 9
-    .annotation build Landroid/annotation/SuppressLint;
-        value = {
-            "NewApi"
-        }
-    .end annotation
 
-    .prologue
     const/4 v7, 0x0
 
     const/4 v6, 0x1
