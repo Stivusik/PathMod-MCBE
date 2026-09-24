@@ -8,6 +8,7 @@ invoke-virtual {p0}, Lcom/mojang/minecraftpe/MainActivity;->getDataDir()Ljava/io
 ```
 const/4\s+v0,\s+0x0\s*\n\s*\.line\s+\d+\s*\n\s*invoke-virtual\s+\{p0,\s*v0\},\s*Lcom/mojang/minecraftpe/MainActivity;->getExternalFilesDir\(Ljava/lang/String;\)Ljava/io/File;
 ```
+>Regex required
 
 To:
 ```
