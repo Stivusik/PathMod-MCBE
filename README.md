@@ -6,9 +6,7 @@ Replace all from:
 invoke-virtual {p0}, Lcom/mojang/minecraftpe/MainActivity;->getDataDir()Ljava/io/File;
 ```
 ```
-const/4 v0, 0x0
-
-invoke-virtual {p0, v0}, Lcom/mojang/minecraftpe/MainActivity;->getExternalFilesDir(Ljava/lang/String;)Ljava/io/File;
+const/4\s+v0,\s+0x0\s*\n\s*\.line\s+\d+\s*\n\s*invoke-virtual\s+\{p0,\s*v0\},\s*Lcom/mojang/minecraftpe/MainActivity;->getExternalFilesDir\(Ljava/lang/String;\)Ljava/io/File;
 ```
 
 To:
