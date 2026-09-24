@@ -1,4 +1,4 @@
-> For LiteLDev, OpenMCBE, Nexcaise and **any** of their subcompanies/suborganizations is not allowed to use this product for their purposes in any way.
+> Pathmod is forcing Minecraft to use /sdcard/games/ instead of /data/user/0/ and sdcard/Android/data
 
 ### Replace strings
 Replace all from:
