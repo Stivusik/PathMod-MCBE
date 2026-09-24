@@ -18,50 +18,7 @@ invoke-static {}, Landroid/os/Environment;->getExternalStorageDirectory()Ljava/i
 ### Replace methods In MainActivity.smali
 Replace from:
 ```
-.method public getLegacyExternalStoragePath(Ljava/lang/String;)Ljava/lang/String;
-    .registers 5
-
-    .line 1228
-    invoke-static {}, Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;
-
-    move-result-object v0
-
-    .line 1229
-    new-instance v1, Ljava/io/File;
-
-    invoke-direct {v1, v0, p1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
-
-    .line 1230
-    new-instance p1, Ljava/io/File;
-
-    const-string/jumbo v2, "test"
-
-    invoke-direct {p1, v1, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
-
-    .line 1234
-    :try_start_11
-    new-instance v1, Ljava/io/FileOutputStream;
-
-    invoke-direct {v1, p1}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
-
-    .line 1235
-    invoke-virtual {v1}, Ljava/io/FileOutputStream;->close()V
-    :try_end_19
-    .catch Ljava/lang/Exception; {:try_start_11 .. :try_end_19} :catch_1e
-
-    .line 1241
-    invoke-virtual {v0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
-
-    move-result-object p1
-
-    goto :goto_20
-
-    :catch_1e
-    const-string p1, ""
-
-    :goto_20
-    return-object p1
-.end method
+(?s)\.method\s+public\s+getLegacyExternalStoragePath\(Ljava/lang/String;\)Ljava/lang/String;.*?\.end\s+method
 ```
 
 To:
