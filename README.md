@@ -1,6 +1,6 @@
 >Pathmod is forcing Minecraft to use /sdcard/ instead of /data/user/0/ and /sdcard/Android/data
 
-### Replace strings
+### Replace strings In MainActivity.smali
 Replace all from:
 ```
 invoke-virtual {p0}, Lcom/mojang/minecraftpe/MainActivity;->getDataDir()Ljava/io/File;
@@ -15,9 +15,8 @@ To:
 ```
 invoke-static {}, Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;
 ```
-In MainActivity.smali
 
-### Replace methods
+### Replace methods In MainActivity.smali
 Replace from:
 ```
 .method public getLegacyExternalStoragePath(Ljava/lang/String;)Ljava/lang/String;
@@ -76,7 +75,6 @@ To:
     return-object p0
 .end method
 ```
-In MainActivity.smali
 
 ### Add permission request:
 Paste these methods in the end of MainActivity.smali:
