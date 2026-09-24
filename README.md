@@ -1,4 +1,4 @@
-> Pathmod is forcing Minecraft to use /sdcard/ instead of /data/user/0/ and /sdcard/Android/data
+>Reminder: Pathmod is forcing Minecraft to use /sdcard/ instead of /data/user/0/ and /sdcard/Android/data
 
 ### Replace strings
 Replace all from:
