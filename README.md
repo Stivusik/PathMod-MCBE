@@ -31,6 +31,7 @@ To:
     return-object p0
 .end method
 ```
+>Regex is required to find the method
 
 ### Add permission request:
 Paste these methods in the end of MainActivity.smali:
